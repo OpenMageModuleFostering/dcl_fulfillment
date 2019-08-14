@@ -22,7 +22,7 @@ class DCL_Fulfillment_RegisterController extends Mage_Core_Controller_Front_Acti
 
         $ch = curl_init();
 
-        curl_setopt($ch,CURLOPT_URL, "https://ecommerce.dclcorp.com/magento/setup"); //set URL
+        curl_setopt($ch,CURLOPT_URL, "https://integrations.dclcorp.com/magentoapi/setup"); //set URL
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch,CURLOPT_POST, 1);
         curl_setopt($ch,CURLOPT_POSTFIELDS, $setup_store);
