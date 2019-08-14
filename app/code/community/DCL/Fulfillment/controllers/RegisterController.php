@@ -4,7 +4,7 @@
  * @author DCL
  */
 
-class DCL_Fulfillment_RegisterController extends Mage_Adminhtml_Controller_Action
+class DCL_Fulfillment_RegisterController extends Mage_Core_Controller_Front_Action//Mage_Adminhtml_Controller_Action
 {
     public function indexAction()
     {
