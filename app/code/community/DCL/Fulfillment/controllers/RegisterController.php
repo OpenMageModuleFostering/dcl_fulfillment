@@ -56,6 +56,8 @@ class DCL_Fulfillment_RegisterController extends Mage_Core_Controller_Front_Acti
             }
 
             $installer->endSetup();
+            # refresh magento configuration cache
+            Mage::app()->getCacheInstance()->cleanType('config');
         }
         header('Content-Type: application/json', true);
         ob_end_clean();
