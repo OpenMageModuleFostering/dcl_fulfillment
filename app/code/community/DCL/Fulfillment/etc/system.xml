@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*
+ * @author    DCL
+ * 
+ */
+-->
+<config>
+    <tabs>
+        <dcl_fulfillment_tab translate="label" module="dcl_fulfillment">
+            <label>DCL Fulfillment</label>
+            <sort_order>101</sort_order>
+        </dcl_fulfillment_tab>
+    </tabs>
+    <sections>
+        <dcl_fulfillment translate="label" module="dcl_fulfillment">
+            <label>Settings</label>
+            <tab>dcl_fulfillment_tab</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label" module="dcl_fulfillment">
+                    <label>General settings</label>
+                    <tab>dcl_fulfillment_tab</tab>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <comment><![CDATA[    
+                            <a href="http://www.dclcorp.com" target="_blank"><IMG border="0" src="/skin/adminhtml/default/default/images/dcl_fulfillment_logo.png"></a>
+                            <div style="margin-top:4px;margin-bottom:4px; color:gray;"></div>
+                            <div style="margin-top:4px;"><b>For assistance please contact: <a href="mailto:sales@dclcorp.com">sales@dclcorp.com</a></b></div>
+                            <br />
+                            <span style="color: #eb5e00; font-weight: bold">To link a store to an eFactory account, please select the specific store from the "Current Configuration Scope".</span><br />
+                            <hr /><br />
+                            ]]>
+                    </comment>
+                    <fields>
+                        <efactory_username translate="label">
+                            <label>eFactory Username</label>
+                            <frontend_model>dcl_fulfillment/adminhtml_config_form_readonlyconditionalfield</frontend_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </efactory_username>
+                        <efactory_password translate="label">
+                            <label>eFactory Password</label>
+                            <frontend_model>dcl_fulfillment/adminhtml_config_form_readonlyconditionalfield</frontend_model>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </efactory_password>
+                        <account_number translate="label">
+                            <label>eFactory Account Number</label>
+                            <frontend_model>dcl_fulfillment/adminhtml_config_form_accountnumber</frontend_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </account_number>
+                        <link_button translate="label">
+                            <label></label>
+                            <sort_order>9</sort_order>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>dcl_fulfillment/adminhtml_config_form_link</frontend_model>
+                            <comment><![CDATA[    
+                                    Link this Magento Store to a DCL eFactory account
+                                    <br /><hr /><br />
+                                    ]]>
+                            </comment>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </link_button>
+                        <enabled translate="label">
+                            <label>Enable DCL API</label>
+                            <comment>
+                                <![CDATA[Enable DCL background processes to acknowledge and fulfill orders, and update stock quantity.]]>
+                            </comment>                            
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <acknowledgeonly translate="label">
+                            <label>Acknowledge Only</label>
+                            <comment>
+                                <![CDATA[DCL will only acknowledge orders but not fulfill unless requested.]]>
+                            </comment>                            
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </acknowledgeonly>
+                        <price translate="label">
+                            <label>Prices on Packing List</label>
+                            <comment>
+                                <![CDATA[All order prices will be printed on the Packing List document.]]>
+                            </comment>                            
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </price>
+                        <notification translate="label">
+                            <label>Magento Fulfillment Notification</label>
+                            <comment>
+                                <![CDATA[Magento will email ship notification to customers upon DCL fulfillment.]]>
+                            </comment>                            
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </notification>
+                        <inventory translate="label">
+                            <label>Update Inventory</label>
+                            <comment>
+                                <![CDATA[DCL will update Magento inventory.]]>
+                            </comment>                            
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </inventory>
+                        <instock translate="label">
+                            <label>In Stock</label>
+                            <comment>
+                                <![CDATA[DCL will force item in stock when quantity > 0.]]>
+                            </comment>                            
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </instock>
+                        <processstatus translate="label">
+                            <label>Process Status</label>
+                            <comment>
+                                <![CDATA[DCL will process orders with selected status.]]>
+                            </comment>                            
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>dcl_fulfillment/system_config_source_statuslist</source_model>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </processstatus>
+                        <acknowledgetatus translate="label">
+                            <label>Acknowledge Status</label>
+                            <comment>
+                                <![CDATA[Update order status upon DCL order acknowledgment.]]>
+                            </comment>                            
+                            <frontend_type>select</frontend_type>
+                            <source_model>dcl_fulfillment/system_config_source_acknowledgestatus</source_model>
+                            <sort_order>17</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </acknowledgetatus>
+                        <importdays translate="label">
+                            <label>Import Days</label>
+                            <comment>
+                                <![CDATA[DCL will import orders only on these selected days.]]>
+                            </comment>                            
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>dcl_fulfillment/system_config_source_days</source_model>
+                            <sort_order>18</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </importdays>
+                        <importtimefrom translate="label">
+                            <label>Import Time From (PST)</label>
+                            <frontend_type>time</frontend_type>
+                            <sort_order>19</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </importtimefrom>
+                        <importtimeto translate="label">
+                            <label>Import Time To (PST)</label>
+                            <comment>
+                                <![CDATA[DCL will import orders only in this range of time.]]>
+                            </comment>                            
+                            <frontend_type>time</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </importtimeto>
+                        <ordertime translate="label">
+                            <label>Order Age</label>
+                            <comment>
+                                <![CDATA[Time allowed for customer changes before order is transferred to DCL.]]>
+                            </comment>                            
+                            <frontend_type>select</frontend_type>
+                            <source_model>dcl_fulfillment/system_config_source_orderage</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ordertime>
+                    </fields>
+                </general>
+                <shipping translate="label" module="dcl_fulfillment">
+                    <label>Shipping methods</label>
+                    <tab>dcl_fulfillment_tab</tab>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <comment><![CDATA[    
+                            Map all active Magento shipping methods with <a href="https://api.dclcorp.com/Help/ShipMethods" target="_blank">DCL Carrier/Service</a>.<br />
+                            <br /><hr /><br />
+                            ]]>
+                    </comment>
+                    <fields>
+                        <shippingtable translate="label" module="dcl_fulfillment">
+                            <label>Mapped Shipping Methods</label>
+                            <frontend_model>dcl_fulfillment/adminhtml_config_form_field_shippingtable</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </shippingtable>
+                    </fields>
+                </shipping>
+            </groups>
+        </dcl_fulfillment>
+    </sections>
+</config>

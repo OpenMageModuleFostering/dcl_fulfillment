@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/DCL_Fulfillment",
+    "type": "magento-module",
+    "license": "OSL",
+    "homepage": "",
+    "description": "Linking your Magento store to DCL fulfillment warehouses seamlessly.",
+    "authors": [
+    {
+        "name": "Discopylabs",
+        "email": "sales@dclcorp.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

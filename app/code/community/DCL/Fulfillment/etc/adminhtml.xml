@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                          <config>
+                            <children>
+                              <dcl_fulfillment translate="title">
+                                <title>DCL Fulfillment</title>
+                                <sort_order>100</sort_order>
+                              </dcl_fulfillment>
+                            </children>
+                          </config>
+                        </children>
+                    </system>
+                    <dcl_fulfillment_efactory>
+                        <title>DCL Fulfillment</title>
+                    </dcl_fulfillment_efactory>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

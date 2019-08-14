@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento backend layout
+ *
+ * @author DCL
+ */
+-->
+<layout>
+    <!-- main layout definition that adds the column -->
+    <add_order_grid_column_handle>
+        <reference name="sales_order.grid">
+            <action method="addColumnAfter">
+                <columnId>stage_description</columnId>
+                <arguments translate="label" module="dcl_fulfillment">
+                    <header>DCL Order Stage</header>
+                    <index>stage_description</index>
+                    <filter_index>ack_order.stage_description</filter_index>
+                    <type>text</type>
+                    <width>150</width>
+                </arguments>
+                <after>grand_total</after>
+            </action>
+        </reference>
+    </add_order_grid_column_handle>
+    <!-- order grid action -->
+    <adminhtml_sales_order_grid>
+        <!-- apply the layout handle defined above -->
+        <update handle="add_order_grid_column_handle" />
+    </adminhtml_sales_order_grid>
+    <!-- order grid view action -->
+    <adminhtml_sales_order_index>
+        <!-- apply the layout handle defined above -->
+        <update handle="add_order_grid_column_handle" />
+    </adminhtml_sales_order_index>
+</layout>

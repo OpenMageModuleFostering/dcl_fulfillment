@@ -1,0 +1,76 @@
+<script type="text/javascript">
+    //<![CDATA[
+    function linkToEFactory(efactory_username, efactory_password, account_number, link_label, unlink_label, store_url, store_id) {
+        var params = {
+            efactory_username: efactory_username,    
+            efactory_password: efactory_password,
+            account_number: account_number,  
+            link_label: link_label,
+            unlink_label: unlink_label,
+            store_url: store_url,
+            store_id: store_id
+        };
+
+        new Ajax.Request('<?php echo $this->getAjaxLinkUrl() ?>', {
+            method:     'post',
+            parameters : { data: JSON.stringify(params),
+                           form_key: "<?php echo Mage::getSingleton('core/session')->getFormKey();?>"
+                         },
+            onSuccess: function(response) {
+                /*if(response.ajaxExpired && response.ajaxRedirect) {
+                    setLocation(response.ajaxRedirect);
+                    return;
+                }*/
+                if (response.status == 200) {
+                    var result = JSON && JSON.parse(response.responseText) || $.parseJSON(response.responseText);
+                    if (result.error_code != 0) {
+                        var html = '<ul class="messages"><li class="error-msg"><ul><li>' + result.error_message + '</li></ul></li></ul>';
+                        $('messages').update(html);
+                    }
+                    else {
+                        $('messages').update('');
+                        //location.reload(); // Too slow
+                        if (result.account_number != null && result.account_number.length != 0) {
+                            // If just linked, disable fields and set account number and button label
+                            document.getElementById('dcl_fulfillment_general_account_number').value = result.account_number;
+                            var style = "border: 0; color:#494; background-color:transparent;";
+                            document.getElementById('dcl_fulfillment_general_efactory_username').style.cssText = style;
+                            document.getElementById('dcl_fulfillment_general_efactory_password').style.cssText = style;
+                            
+                            document.getElementById('dcl_fulfillment_link').title = params.unlink_label;
+                            $nodes = document.getElementById('dcl_fulfillment_link').childNodes[0];
+                            while ($nodes.innerText == '') {
+                                $nodes = $nodes.childNodes[0];
+                            }
+                            $nodes.innerText = params.unlink_label;
+                        }
+                        else {
+                            // If just un-linked, enable fields and reset account number and button label
+                            document.getElementById('dcl_fulfillment_general_account_number').value = "";
+                            document.getElementById('dcl_fulfillment_general_efactory_username').style.cssText = "";
+                            document.getElementById('dcl_fulfillment_general_efactory_password').style.cssText = "";
+                            document.getElementById('dcl_fulfillment_general_efactory_username').disabled = false;
+                            document.getElementById('dcl_fulfillment_general_efactory_password').disabled = false;
+                            document.getElementById('dcl_fulfillment_general_efactory_username').value = "";
+                            document.getElementById('dcl_fulfillment_general_efactory_password').value = "";
+
+                            document.getElementById('dcl_fulfillment_link').title = params.link_label;
+                            $nodes = document.getElementById('dcl_fulfillment_link').childNodes[0];
+                            while ($nodes.innerText == '') {
+                                $nodes = $nodes.childNodes[0];
+                            }
+                            $nodes.innerText = params.link_label;
+                        }
+                    }
+                }
+            },
+            onFailure: function(response){
+                setLocation('/admin');
+                //alert("Call is failed" );
+            }
+        });
+    }
+    //]]>
+</script>
+ 
+<?php echo $this->getButtonHtml() ?>

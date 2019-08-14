@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module initial config
+ *
+ * DCL Fulfillment extension
+ *
+ * @author DCL
+ *
+*/
+-->
+<config>
+     <modules>
+        <DCL_Fulfillment>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Adminhtml />
+            </depends>
+        </DCL_Fulfillment>
+    </modules>
+</config>

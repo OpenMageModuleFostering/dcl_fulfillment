@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<!--
+
+/**
+ * Module configuraton
+ *
+ * @author DCL
+ */
+
+-->
+
+<config>
+     <modules>
+        <DCL_Fulfillment>
+            <version>1.0.0</version>
+        </DCL_Fulfillment>
+    </modules>
+    <global>
+        <models>
+            <dcl_fulfillment>
+                <class>DCL_Fulfillment_Model</class>
+                <resourceModel>dcl_fulfillment_resource</resourceModel>
+            </dcl_fulfillment>
+            <dcl_fulfillment_resource>
+                <class>DCL_Fulfillment_Model_Resource</class>
+                <entities>
+                    <acknowledgedorder>
+                        <table>dcl_fulfillment_acknowledgedorder</table>
+                    </acknowledgedorder>
+                    <inventory>
+                        <table>dcl_fulfillment_inventory</table>
+                    </inventory>
+                </entities>
+            </dcl_fulfillment_resource>
+        </models>
+        <helpers>
+            <dcl_fulfillment>
+                <class>DCL_Fulfillment_Helper</class>
+            </dcl_fulfillment>
+        </helpers>
+        <blocks>
+            <dcl_fulfillment>
+                <class>DCL_Fulfillment_Block</class>
+            </dcl_fulfillment>
+        </blocks>
+        <resources>
+            <dcl_fulfillment_setup>
+                <setup>
+                    <module>DCL_Fulfillment</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </dcl_fulfillment_setup>
+        </resources>
+        <events>
+            <adminhtml_init_system_config>
+                <observers>
+                    <dcl_fulfillment_init_system_config>
+                        <model>dcl_fulfillment/observer</model>
+                        <method>onDisplayDCLFulfillmentSection</method>
+                    </dcl_fulfillment_init_system_config>
+                </observers>
+            </adminhtml_init_system_config>
+        </events>
+    </global>
+    <frontend>
+        <routers>
+            <connector>
+                <use>standard</use>
+                <args>
+                    <module>DCL_Fulfillment</module>
+                    <frontName>dcl_fulfillment</frontName>
+                </args>
+            </connector>
+        </routers>
+    </frontend>
+    <!--<admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <DCL_Fulfillment before="Mage_Adminhtml">DCL_Fulfillment_Adminhtml</DCL_Fulfillment>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+-->
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <DCL_Fulfillment before="Mage_Adminhtml">DCL_Fulfillment</DCL_Fulfillment>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <dcl_fulfillment>
+                    <file>dcl_fulfillment.xml</file>
+                </dcl_fulfillment>
+            </updates>
+        </layout>
+        <events>
+            <sales_order_grid_collection_load_before>
+                <observers>
+                    <dcl_fulfillment>
+                        <model>dcl_fulfillment/observer</model>
+                        <method>salesOrderGridCollectionLoadBefore</method>
+                    </dcl_fulfillment>
+                </observers>
+            </sales_order_grid_collection_load_before>
+        </events>
+    </adminhtml>
+    <default>
+        <dcl_fulfillment>
+            <general>
+                <enabled>0</enabled>
+                <acknowledgeonly>1</acknowledgeonly>
+                <price>0</price>
+                <notification>1</notification>
+                <inventory>0</inventory>
+                <instock>1</instock>
+                <importtimefrom>00,00,00</importtimefrom>
+                <importtimeto>23,59,59</importtimeto>
+                <importdays>0,1,2,3,4,5,6</importdays>
+                <processstatus>processing</processstatus>
+                <ordertime>120</ordertime>
+            </general>
+        </dcl_fulfillment>
+    </default>
+</config>
