@@ -12,7 +12,7 @@
 <config>
      <modules>
         <DCL_Fulfillment>
-            <version>1.0.1</version>
+            <version>1.0.3</version>
         </DCL_Fulfillment>
     </modules>
     <global>

@@ -104,7 +104,7 @@
                             <show_in_store>1</show_in_store>
                         </acknowledgeonly>
                         <price translate="label">
-                            <label>Prices on Packing List</label>
+                            <label>Collect Prices</label>
                             <comment>
                                 <![CDATA[All order prices will be printed on the Packing List document.]]>
                             </comment>                            
